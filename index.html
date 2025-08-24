@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theo dõi Chuyển Khoản</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>THEO DÕI CHUYỂN KHOẢN</h2>
+      <form action="/#" class="form-process">
+        <div class="input-group">
+          <label for="tranferDate">Ngày chuyển:</label>
+          <input id="tranferDate" type="date" step="1" />
+        </div>
+
+        <div class="input-group">
+          <label for="remittance-person">Người chuyển:</label>
+          <input id="remittance-person" type="text" />
+        </div>
+
+        <div class="input-group">
+          <label for="amountTranfer">Số tiền:</label>
+          <input id="amountTranfer" type="number" step="10000" min="0" />
+        </div>
+
+        <div class="input-group">
+          <label for="recipient">Người nhận:</label>
+          <input id="recipient" type="text" />
+        </div>
+
+        <div class="input-group">
+          <label for="settlementDate">Ngày tất toán:</label>
+          <input id="settlementDate" type="date" step="1" />
+        </div>
+
+        <div class="input-group">
+          <label for="note">Ghi chú:</label>
+          <input id="note" type="text" />
+        </div>
+
+        <div class="inputBtn">
+          <input type="submit" value="Thêm" />
+          <input type="reset" value="Đặt lại" />
+        </div>
+      </form>
+      <button class="export-excel-btn" onclick="exportExcel()">Xuất Excel</button>
+
+      <table class="tranferTable">
+        <thead>
+          <tr>
+            <th>Ngày chuyển</th>
+            <th>Người chuyển</th>
+            <th>Số tiền</th>
+            <th>Người nhận</th>
+            <th>Ngày tất toán</th>
+            <th>Ghi chú</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody class="tranferTable-Data"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
