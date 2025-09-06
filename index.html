@@ -3,35 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/public/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <title>Theo dõi Chuyển Khoản</title>
   </head>
   <body>
     <div class="container">
       <h2>THEO DÕI CHUYỂN KHOẢN</h2>
-      <form action="/#" class="form-process">
+      <section class="form-process">
         <div class="input-group">
-          <label for="tranferDate">Ngày chuyển:</label>
-          <input id="tranferDate" type="date" step="1" />
+          <label for="transfer_date">Ngày chuyển:</label>
+          <input id="transfer_date" type="date" step="1" />
         </div>
 
         <div class="input-group">
-          <label for="remittance-person">Người chuyển:</label>
-          <input id="remittance-person" type="text" />
+          <label for="transferer">Người chuyển:</label>
+          <input id="transferer" type="text" />
         </div>
 
         <div class="input-group">
-          <label for="amountTranfer">Số tiền:</label>
-          <input id="amountTranfer" type="number" step="10000" min="0" />
+          <label for="amount">Số tiền:</label>
+          <input id="amount" type="number" step="10000" min="0" />
         </div>
 
         <div class="input-group">
-          <label for="recipient">Người nhận:</label>
-          <input id="recipient" type="text" />
+          <label for="receiver">Người nhận:</label>
+          <input id="receiver" type="text" />
         </div>
 
         <div class="input-group">
-          <label for="settlementDate">Ngày tất toán:</label>
-          <input id="settlementDate" type="date" step="1" />
+          <label for="transferType">Loại:</label>
+          <select id="transferType">
+            <option value="" disabled selected>--Chọn loại--</option>
+            <option value="Chuyển">Chuyển</option>
+            <option value="Nhận">Nhận</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="settlement_day">Ngày tất toán:</label>
+          <input id="settlement_day" type="date" step="1" />
         </div>
 
         <div class="input-group">
@@ -39,27 +50,37 @@
           <input id="note" type="text" />
         </div>
 
-        <div class="inputBtn">
-          <input type="submit" value="Thêm" />
-          <input type="reset" value="Đặt lại" />
+        <div class="btn">
+          <button onclick="addTransfer()">Thêm</button>
+          <button onclick="resetInput()">Đặt lại</button>
+          <button class="export-excel-btn" onclick="exportExcel()">Xuất Excel</button>
         </div>
-      </form>
-      <button class="export-excel-btn" onclick="exportExcel()">Xuất Excel</button>
+      </section>
 
-      <table class="tranferTable">
+      <table class="transferTable" id="transferTable">
         <thead>
           <tr>
             <th>Ngày chuyển</th>
             <th>Người chuyển</th>
             <th>Số tiền</th>
             <th>Người nhận</th>
+            <th>Loại</th>
             <th>Ngày tất toán</th>
             <th>Ghi chú</th>
             <th>Thao tác</th>
           </tr>
         </thead>
-        <tbody class="tranferTable-Data"></tbody>
+        <tbody class="transferTable-Data" id="transferTable-Data"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="1">Tổng chuyển</td>
+            <td id="totalTransfer" colspan="2">0</td>
+            <td colspan="1">Tộng nhận</td>
+            <td id="totalReceive" colspan="4">0</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
+    <script src="./src/public/js/main.js"></script>
   </body>
 </html>
