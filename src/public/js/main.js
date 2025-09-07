@@ -50,8 +50,8 @@ function renderTable(transfers) {
         <td data-value="${e.settlement_day}">${formattedDate(e.settlement_day)}</td>
         <td>${e.note}</td>
         <td>
-          <button onclick="editTransfer(${e.id})">Sửa</button>
-          <button onclick="deleteTransfer(${e.id})">Xóa</button>
+          <button onclick="editTransfer(${e.id})"><i class="fa-solid fa-pen-clip"></i></button>
+          <button onclick="deleteTransfer(${e.id})"><i class="fa-regular fa-trash-can"></i></button>
         </td>
     `;
     tBody.appendChild(row);
@@ -156,8 +156,8 @@ function editTransfer(id) {
     <td><input id="edit_settlement_day_${id}" type="date" value="${settlement_day}" /></td>
     <td><input id="edit_note_${id}" type="text" value="${note || ""}" /></td>
     <td>
-      <button onclick="updateTransfer(${id})">Xác nhận</button>
-      <button onclick="fetchTransfer()">Hủy</button>
+      <button onclick="updateTransfer(${id})"><i class="fa-solid fa-square-check"></i></button>
+      <button onclick="fetchTransfer()"><i class="fa-solid fa-circle-xmark"></i></button>
     </td>
   `;
 }

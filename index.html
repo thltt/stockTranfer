@@ -3,8 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/public/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="./src/public/css/reset.css" />
+    <link rel="stylesheet" href="./src/public/css/styles.css" />
     <title>Theo dõi Chuyển Khoản</title>
   </head>
   <body>
@@ -51,8 +59,8 @@
         </div>
 
         <div class="btn">
-          <button onclick="addTransfer()">Thêm</button>
-          <button onclick="resetInput()">Đặt lại</button>
+          <button class="add-btn" onclick="addTransfer()">Thêm</button>
+          <button class="reset-btn" onclick="resetInput()">Đặt lại</button>
           <button class="export-excel-btn" onclick="exportExcel()">Xuất Excel</button>
         </div>
       </section>
