@@ -8,12 +8,9 @@ const pool = new Pool({
   password: process.env.RAIL_DB_PASSWORD,
   database: process.env.RAIL_DB_DBNAME,
   waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-  multipleStatements: true,
   maxIdle: 10,
-  idleTimeout: 60000,
-  enableKeepAlive: true,
+  idleTimeoutMillis: 60000,
+  keepAlive: true,
   keepAliveInitialDelay: 0,
 });
 

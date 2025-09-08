@@ -2,8 +2,7 @@ const pool = require("../config/database.js");
 
 //select toàn bộ dữ liệu trong bảng
 const getTransfer = async (req, res) => {
-  const rows = await pool.query(`SELECT * FROM transfer ORDER BY transfer_date DESC, id DESC`);
-  return rows;
+  return pool.query(`SELECT * FROM transfer ORDER BY transfer_date DESC, id DESC`);
 };
 
 // thêm giao dịch
