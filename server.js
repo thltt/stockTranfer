@@ -17,4 +17,8 @@ pg.types.setTypeParser(1082, (val) => val);
 
 app.use("/", webRouter);
 
+router.get("/", (req, res) => {
+  res.json({ msg: "Hello từ Vercel, DB chưa bật" });
+});
+
 module.exports = serverless(app);
