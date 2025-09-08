@@ -15,7 +15,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   background: #fff;
   padding: 20px;
   border-radius: 16px;
@@ -28,11 +28,12 @@ h2 {
   text-align: center;
   color: #07531c;
   margin-bottom: 20px;
+  margin-top: 3vh;
 }
 
 .form-process {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 15px;
   margin-bottom: 25px;
   padding: 15px;
@@ -75,13 +76,14 @@ h2 {
   justify-content: start;
   align-items: flex-end;
   gap: 10px;
+  flex-wrap: nowrap;
   width: 100%;
 }
 
 .btn button {
-  min-width: 120px;
+  min-width: 100px;
   height: 30px;
-  padding: 5px 14px;
+  padding: 5px 10px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -114,13 +116,36 @@ h2 {
   background: #125aa3;
 }
 
+.regular-btn {
+  display: flex;
+  justify-content: space-around;
+}
+.regular-btn button:hover {
+  scale: 1.2;
+}
+i {
+  font-size: 1rem;
+}
+.fa-square-check,
+.fa-circle-xmark {
+  font-size: 1.3rem;
+}
+.fa-pen-clip,
+.fa-square-check {
+  color: #07531c;
+}
+.fa-trash-can,
+.fa-circle-xmark {
+  color: red;
+}
 /* Table styles */
 table {
   width: 100%;
   border-collapse: collapse;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px #0000001a;
+  table-layout: fixed;
 }
 
 table thead {
@@ -151,6 +176,19 @@ tfoot {
 }
 tfoot td {
   text-align: center;
+}
+
+#totalTransfer {
+  color: red;
+}
+#totalReceive {
+  color: green;
+}
+.transferTable-Data tr td input,
+.transferTable-Data tr td select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Responsive */
@@ -189,8 +227,7 @@ tfoot td {
 
   .btn {
     display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
-    /* align-items: stretch; */
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .btn button {
@@ -201,10 +238,21 @@ tfoot td {
     display: block;
     overflow-x: auto;
   }
+  .transferTable-Data tr td input,
+  .transferTable-Data tr td select {
+    max-width: 100px;
+  }
 
   table th,
   table td {
     font-size: 0.8rem;
     padding: 1px;
+  }
+  i {
+    font-size: 0.7rem;
+  }
+  .fa-square-check,
+  .fa-circle-xmark {
+    font-size: 0.8rem;
   }
 }

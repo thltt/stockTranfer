@@ -49,7 +49,7 @@ function renderTable(transfers) {
         <td data-value="${e.type_transfer}">${e.type_transfer}</td>
         <td data-value="${e.settlement_day}">${formattedDate(e.settlement_day)}</td>
         <td>${e.note}</td>
-        <td>
+        <td class = "regular-btn">
           <button onclick="editTransfer(${e.id})"><i class="fa-solid fa-pen-clip"></i></button>
           <button onclick="deleteTransfer(${e.id})"><i class="fa-regular fa-trash-can"></i></button>
         </td>
@@ -137,7 +137,7 @@ function editTransfer(id) {
   const transferer = c1.textContent.trim();
   const amount = c2.dataset.value;
   const receiver = c3.textContent.trim();
-  const type_transfer = get(c4) || c4.textContent.trim(); // 'Chuyển' | 'Nhận'
+  const type_transfer = get(c4) || c4.textContent.trim();
   const settlement_day = toInputDate(c5.dataset.value);
   const note = c6.textContent.trim();
 
@@ -155,7 +155,7 @@ function editTransfer(id) {
     </td>
     <td><input id="edit_settlement_day_${id}" type="date" value="${settlement_day}" /></td>
     <td><input id="edit_note_${id}" type="text" value="${note || ""}" /></td>
-    <td>
+    <td class = "regular-btn">
       <button onclick="updateTransfer(${id})"><i class="fa-solid fa-square-check"></i></button>
       <button onclick="fetchTransfer()"><i class="fa-solid fa-circle-xmark"></i></button>
     </td>
