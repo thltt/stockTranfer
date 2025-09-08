@@ -1,4 +1,4 @@
-const API = "http://localhost:8060/transfer";
+const API = "https://stock-tranfer.vercel.app/transfer";
 
 window.onload = () => {
   fetchTransfer();
