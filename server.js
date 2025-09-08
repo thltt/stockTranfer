@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const pg = require("pg");
 require("dotenv").config();
-const serverless = require("serverless-http");
 const webRouter = require("./src/routes/routes.js");
 
 const app = express();
@@ -15,4 +14,4 @@ pg.types.setTypeParser(1082, (val) => val);
 
 app.use("/", webRouter);
 
-module.exports = serverless(app);
+module.exports = app;
