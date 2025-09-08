@@ -7,21 +7,19 @@ const pool = new Pool({
   user: process.env.RAIL_DB_USER,
   password: process.env.RAIL_DB_PASSWORD,
   database: process.env.RAIL_DB_DBNAME,
-  waitForConnections: true,
-  maxIdle: 10,
+  max: 10, // số connection tối đa
   idleTimeoutMillis: 60000,
   keepAlive: true,
-  keepAliveInitialDelay: 0,
 });
 
-// check kết nối db
+// Kiểm tra kết nối DB
 (async () => {
   try {
     const connection = await pool.connect();
-    console.log("✅ Kết nối postgresDB ok");
+    console.log("✅ Kết nối Postgres thành công");
     connection.release();
   } catch (err) {
-    console.error("❌ Lỗi DB mẹ nó rồi", err);
+    console.error("❌ Lỗi kết nối DB:", err);
     process.exit(1);
   }
 })();
